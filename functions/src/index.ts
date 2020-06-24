@@ -16,9 +16,11 @@ db.settings({ignoreUndefinedProperties : true});
 const main = express();
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({extended: false}));
-main.use('/api', require('./person').routes);
-main.use('/api', require('./subject').routes);
-main.use('/api', require('./registration').routes);
+main.use('/api', require('./medic').routes);
+main.use('/api', require('./pacient').routes);
+main.use('/api', require('./prescription').routes);
+main.use('/api', require('./presdetail').routes);
+
 
 export const api = functions.https.onRequest(main);
 export { db };
